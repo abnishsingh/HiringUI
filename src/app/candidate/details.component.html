@@ -1,0 +1,51 @@
+<mat-form-field>
+   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table  [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+    <!-- temp_Id  Column -->
+    <ng-container matColumnDef="savedExecID" sticky>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Exec ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.savedExecID}} </td>
+    </ng-container>
+  
+    <!-- RobotName Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Element Desc </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+  
+  <!-- RobotDescription Column -->
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Element Category </th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="browser">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Element Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.browser}} </td>
+  </ng-container>
+  <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Element Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="environment">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Element Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.environment}} </td>
+  </ng-container>
+  <ng-container matColumnDef="creator">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Element Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.creator}} </td>
+  </ng-container>
+  <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Element Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+  </ng-container>     
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="selectRow(row)"></tr>
+  </table>
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
+</div>
